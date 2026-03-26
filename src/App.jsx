@@ -12,6 +12,9 @@ function App() {
   return (
     <>
       <Header></Header>
+      <main>
+        <h2>Home</h2>
+      </main>
       <Footer></Footer>
     </>
   );
