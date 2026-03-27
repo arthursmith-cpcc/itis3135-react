@@ -11,6 +11,7 @@ function App() {
 
   return (
     <>
+      <title>Arthur Smith's Ancient Sabertooth | ITIS3135 | Home</title>
       <Header></Header>
       <main>
         <h2>Home</h2>
