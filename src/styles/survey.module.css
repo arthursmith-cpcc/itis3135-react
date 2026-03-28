@@ -1,0 +1,84 @@
+
+.survey {
+    display: grid;
+    grid-template-areas: 'header-two header-two logo''invitation invitation invitation''form form form';
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0px;
+    margin-bottom: 3%;
+}
+.survey img {
+    background: linear-gradient(-45deg, white, #cedfcd 15%, black 50%, #d5c3cf 95%);
+    grid-area: logo;
+    width: 200px;
+    border-radius: 15%;
+}
+.survey h2 {
+    grid-area: header-two;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    
+}
+.survey > p:first-of-type {
+    grid-area: invitation;
+    font-size: 1.5em;
+    text-decoration: underline;
+    margin-top: 0;
+}
+.survey form {
+    grid-area: form;
+}
+.survey label, .survey input {
+    display: inline-block;
+}
+.survey #age {
+    width: 10%;
+}
+
+.survey input:focus, .survey textarea:focus, .survey #rating:focus {
+    
+    outline: 2px solid cyan;
+}
+.survey input:hover, .survey textarea:hover, .survey #rating:hover {
+    outline: 2px solid cyan;
+    cursor: pointer;
+}
+.survey button {
+    display: block;
+    border: none;
+    width: 15%;
+    height: 7.5%;
+    font-size: 1.25em;
+    color: #ddd;
+    margin: 4px;
+    border-radius: 8%;
+    background: linear-gradient(-45deg, white, #cedfcd 15%, black 50%, #d5c3cf 95%)
+}
+.survey button:focus {
+    outline: 2px solid cyan;
+}
+.survey button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+@media (max-width: 750px) {
+    .survey main {
+        grid-template-areas: 'header-two logo''invitation invitation''form form';
+        grid-template-columns: 1fr 1fr;
+    }
+    .nameEmailAge {
+        display: flex;
+        flex-direction: column;
+    }
+    .nameEmailAge #age {
+        width: 70%;
+    }
+    .nameEmailAge input {
+        width: 70%;
+    }
+    .survey button {
+        width: 15%;
+        height: 6.75%;
+        font-size: .9em;
+    }
+}

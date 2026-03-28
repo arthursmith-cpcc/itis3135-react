@@ -1,17 +1,19 @@
 import Header from './Header.jsx'
 import Footer from './Footer.jsx'
+import mascotLogo from './assets/saber-tooth.svg'
+import styles from './styles/survey.module.css'
 
 export default function Survey() {
     return (
         <>
             <title>Arthur Smith's Ancient Sabertooth | ITIS3135 | Survey</title>
             <Header />
-                <main>
+                <main className={styles.survey}>
                     <h2>Survey</h2>
-                    <img src="./assets/saber-tooth.svg" alt="Sabertooth Lodge Logo" />
+                    <img src={mascotLogo} alt="Sabertooth Lodge Logo" />
                     <p>Tell us about your stay at the Sabertooth Lodge!</p>
                     <form id="survey-form">
-                        <div class="name-email-age">
+                        <div className={styles.nameEmailAge}>
                             <label for="name">Name (required)</label>
                             <input required id="name" name="name" type="text" placeholder="e.g., Jane Doe" />
                             <label for="email">E-mail (required)</label>
@@ -34,11 +36,11 @@ export default function Survey() {
                         <input type="radio" name="recommend" id="recommend-no" value="no" />
                         <label for="recommend-no">No</label>
                         <p>What amenities did you use during your stay?</p>
-                        <input type="checkbox" id="spa" name="amenity" value="spa">
+                        <input type="checkbox" id="spa" name="amenity" value="spa" />
                         <label for="spa">Spa</label>
-                        <input type="checkbox" id="pool" name="amenity" value="pool">
+                        <input type="checkbox" id="pool" name="amenity" value="pool" />
                         <label for="pool">Pool</label>
-                        <input type="checkbox" value="bar" id="bar" name="amenity">
+                        <input type="checkbox" value="bar" id="bar" name="amenity" />
                         <label for="bar">Bar</label>
                         <p>Please add any additional comments you would like to share</p>
                         <textarea name="comments" id="comments" rows="7" cols="50"></textarea>
