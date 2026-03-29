@@ -1,0 +1,81 @@
+.inventory {
+    display: grid;
+    grid-template-areas: 'header-two header-two logo''invitation invitation invitation''table table table';
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0px;
+    margin-bottom: 3%;
+    width: 100%;
+}
+.inventory > img {
+    background: linear-gradient(-45deg, white, #cedfcd 15%, black 50%, #d5c3cf 95%);
+    grid-area: logo;
+    width: 200px;
+    border-radius: 15%;
+}
+.inventory h2 {
+    grid-area: header-two;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    
+}
+
+.inventory > p:first-of-type {
+    grid-area: invitation;
+    font-size: 1.5em;
+    text-decoration: underline;
+    margin-top: 0;
+}
+
+.inventory table {
+    grid-area: table;
+    background-color: #d5c3cf;
+    color: #331832;
+}
+
+.inventory tr > th {
+    text-align: left;
+    font-size: 1.25em;
+}
+
+.inventory span {
+    display: inline-block;
+}
+.inventory span.rateThree > span, .inventory span.rateFour > span{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: auto 3px;
+    height: .75em;
+    width: .75em;
+    box-sizing: border-box;
+}
+
+.inventory tr.redWine > td > span.rateThree > span:nth-of-type(-n+3) {
+    background-color: rgb(54, 7, 7);
+}
+
+.inventory tr.redWine > td > span.rateFour > span {
+    background-color: rgb(54, 7, 7);
+}
+
+.inventory tr.whiteWine > td > span.rateThree > span:nth-of-type(-n+3) {
+    background-color: rgb(94, 89, 17);
+}
+
+.inventory tr.whiteWine > td > span.rateFour > span {
+    background-color: rgb(94, 89, 17);
+}
+
+tr.redWine {
+    background-image: linear-gradient(to bottom, rgb(54, 7, 7) 5%, #d5c3cf 15%);
+}
+tr.whiteWine {
+    background-image: linear-gradient(to bottom, rgb(94, 89, 17) 5%, #d5c3cf 15%);
+}
+
+@media (max-width: 750px) {
+    .inventory {
+        grid-template-areas: 'header-two logo''invitation invitation''table table';
+        grid-template-columns: 1fr 1fr;
+    }
+}

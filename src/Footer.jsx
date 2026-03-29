@@ -2,8 +2,10 @@ export default function Footer() {
     return (
         <>
             <footer>
-                <nav>Github</nav>
-                <p>Copyright &copy; 2026 | Page created by flair by Arthur Smith, certified in Responsive Web Design</p>
+                <nav>
+                    <a href="https://github.com/arthursmith-cpcc" target="_blank">GitHub</a> | <a href="https://webpages.charlotte.edu/asmit775" target="_blank">CLTWeb</a> | <a href="https://arthursmith-cpcc.github.io" target="_blank">GitHub.io</a> | ITIS3135@Vercel | <a href="https://www.freecodecamp.org/arthursmith-uncc" target="_blank">freeCodeCamp</a> | <a href="https://www.linkedin.com/in/arthur-smith-1a2787101" target="_blank">LinkedIn</a>
+                </nav>
+                <p>Copyright &copy; 2026 | Page created by <a href="https://webpages.charlotte.edu/asmit775/itis3135/flairbyarthursmith.com/index.html" target="_blank">flair by Arthur Smith</a>, certified in <a href="https://freecodecamp.org/certification/arthursmith-uncc/responsive-web-design-v9" target="_blank">Responsive Web Design</a></p>
             </footer>
         </>
     );    
