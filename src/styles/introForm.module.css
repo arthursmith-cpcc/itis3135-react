@@ -1,0 +1,238 @@
+.content {
+    padding-top: 40px;
+    min-height: 400px;
+}
+
+/* Tab Navigation Styles */
+.tabNav {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #9f422d;
+    flex-wrap: wrap;
+}
+
+.tabBtn {
+    background-color: transparent;
+    color: #9f422d;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.3s ease;
+}
+
+.tabBtn:hover {
+    background-color: rgba(159, 66, 45, 0.1);
+}
+
+.tabBtnActive {
+    color: #242e2c;
+    border-bottom-color: #9f422d;
+}
+
+.tabContent {
+    display: none;
+}
+
+.tabContentActive {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+form {
+    background-color: #d5c3cf;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+h3 {
+    color:#9f422d;
+}
+.formGroup {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+.optional {
+    font-weight: normal;
+    color: #666;
+}
+input[type="text"],
+input[type="date"],
+input[type="file"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="file"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+.formSection {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
+}
+.formSection:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+.sectionTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+#submitBtn {
+    margin-top: 20px;
+}
+#clearFormBtn {
+    margin-bottom: 20px;
+}
+button:hover {
+    background-color: #45a049;
+}
+.courseRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr auto;
+    gap: 15px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+.courseRow label {
+    margin-bottom: 5px;
+}
+.courseRow input[type="text"] {
+    margin: 0;
+}
+.courseRow .formGroup {
+    margin-bottom: 0;
+}
+.addCourseBtn {
+    background-color: #2196F3;
+    padding: 10px 15px;
+    font-size: 18px;
+    height: fit-content;
+}
+.addCourseBtn:hover {
+    background-color: #0b7dda;
+}
+.removeCourseBtn {
+    background-color: #f44336;
+    padding: 10px 15px;
+    font-size: 18px;
+    height: fit-content;
+    margin: 0;
+}
+.removeCourseBtn:hover {
+    background-color: #da190b;
+}
+.courseActions {
+    display: flex;
+    gap: 10px;
+}
+.courseContainer {
+    margin-bottom: 20px;
+}
+.courseNumberLabel {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+.required {
+    color: red;
+}
+.navBtn {
+    display: inline-block;
+}
+
+/* Add pseudo-element only if data attribute is set */
+input[data-file]::after {
+    content: attr(data-file);
+    margin-left: 0.375em;
+}
+#jsonDisplayContainer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@media (max-width: 768px) {
+    .content {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .formSection {
+        padding: 15px;
+    }
+}

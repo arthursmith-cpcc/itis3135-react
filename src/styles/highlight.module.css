@@ -1,0 +1,116 @@
+.highlight {
+    display: grid;
+    grid-template-areas: 'header-two header-two logo''form form navbar''video video navbar''packages packages navbar';
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0px;
+    margin-bottom: 3%;
+    width: 100%;
+}
+.highlight > img {
+    background: linear-gradient(-45deg, white, #cedfcd 15%, black 50%, #d5c3cf 95%);
+    grid-area: logo;
+    width: 200px;
+    border-radius: 15%;
+}
+
+.highlight > nav {
+    grid-area: navbar;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    justify-content: center;
+    position: fixed;
+    right: 20vw;
+    top: 50vh;
+    gap: 5px;
+    padding-right: 4px;
+    border-right: 1px solid #331832;
+}
+.highlight > form {
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: space-evenly;
+    height: 150px;
+}
+.email {
+    width: 250px;
+}
+.highlight button {
+    border: none;
+    width: 105px;
+    height: 2em;
+    font-size: 1.25em;
+    text-align: center;
+    color: #ddd;
+    margin: 4px;
+    border-radius: 8%;
+    background: linear-gradient(-45deg, white, #cedfcd 15%, black 50%, #d5c3cf 95%)
+}
+.highlight button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.pageVideo {
+    grid-area: video;
+    height: 65vh;
+    margin-bottom: 30px;
+}
+
+.pageVideo > iframe {
+    width: 100%;
+    height: 92%;
+    border: none;
+}
+.highlight h2 {
+    grid-area: header-two;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;    
+}
+.packages {
+    grid-area: packages;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 40vh;
+    width: 100%;
+    margin: 15px;
+    
+}
+.package {
+    height: 70%;
+    width: 20%;
+    min-width: 100px;
+    min-height: 150px;
+    box-sizing: border-box;
+    border: 1px solid #586f6b;
+    align-items: center;
+    padding: auto 0;
+    border-radius: 8%;
+    background-color: #9baca6;
+    transition: .5s ease-in-out;
+}
+.package:hover {
+    transform: scale(1.15);
+}
+.package > p {
+    width: 80%;
+    height: 60%;
+    padding: 3%;
+    margin: 2% auto;
+    background-color: #9baca6;
+    box-sizing: border-box;
+    font-size: 1.1em;
+    text-align: center;
+    vertical-align: center;
+}
+.packageLogo {
+    height: 35%;
+    width: 80%;
+    margin: auto;
+    background: linear-gradient(-45deg, white, #cedfcd 15%, black 50%, #d5c3cf 95%);
+    border-radius: 15%;
+    box-sizing: border-box;
+}
