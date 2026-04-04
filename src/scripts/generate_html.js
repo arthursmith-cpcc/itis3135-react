@@ -88,7 +88,7 @@ function getPictureSource() {
     return defaultPicture;
 }
 
-function buildIntroductionHTML() {
+export function buildIntroductionHTML() {
     // Collect all form data
     const formData = {
         personalInfo: {
@@ -274,19 +274,11 @@ function buildIntroductionHTML() {
     };
 }
 
-function generateHTMLPage() {
+export function generateHTMLPage() {
     const result = buildIntroductionHTML();
     displayGeneratedHTML(result.fullHTML, result.firstName, result.lastName);
 }
 
 // Add event listener to generate HTML button
-document.addEventListener('DOMContentLoaded', function() {
-    const generateHTMLBtn = document.getElementById('generateHTMLBtn');
-    if (generateHTMLBtn) {
-        generateHTMLBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            generateHTMLPage();
-        });
-    }
-});
+// Moved to component
 

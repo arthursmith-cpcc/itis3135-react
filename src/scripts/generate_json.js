@@ -1,4 +1,4 @@
-function displayFormAsJSON() {
+export function displayFormAsJSON() {
     // Collect all form data
     const formData = {};
     
@@ -102,22 +102,24 @@ function displayFormAsJSON() {
     if (!jsonContainer) {
         jsonContainer = document.createElement('div');
         jsonContainer.id = 'jsonDisplayContainer';
-        jsonContainer.style.cssText = `
-            margin-top: 2em;
-            padding: 1.5em;
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-            overflow-x: auto;
-            max-height: 500px;
-            overflow-y: auto;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        `;
-        document.getElementById('introForm').appendChild(jsonContainer);
+        document.getElementById('json-tab').appendChild(jsonContainer);
     }
+    
+    // Apply styles
+    jsonContainer.style.cssText = `
+        margin-top: 2em;
+        padding: 1.5em;
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9em;
+        overflow-x: auto;
+        max-height: 500px;
+        overflow-y: auto;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    `;
     
     // Display the JSON data
     jsonContainer.textContent = jsonString;
@@ -134,12 +136,4 @@ function displayFormAsJSON() {
 }
 
 // Add event listener to display button
-document.addEventListener('DOMContentLoaded', function() {
-    const displayBtn = document.getElementById('displayJSONBtn');
-    if (displayBtn) {
-        displayBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            displayFormAsJSON();
-        });
-    }
-});
+// Moved to component

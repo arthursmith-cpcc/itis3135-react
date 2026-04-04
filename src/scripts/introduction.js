@@ -1,8 +1,10 @@
 //Picture load on page load or refresh
-document.addEventListener('DOMContentLoaded', function() {
+import { buildIntroductionHTML } from './generate_html.js';
+
+export function initializePicture() {
      const pictureInput = document.getElementById('picture');
     if (pictureInput) {
-        const myFile = new File(['beachPic'], '../assets/carolina_beach_2013.jpg', {
+        const myFile = new File(['beachPic'], '/asmit775/images/carolina_beach_2013.jpg', {
             type: 'jpg/jpeg',
             lastModified: new Date()
         });
@@ -15,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             pictureInput.dataset.file = `${dataTransfer.files[0].name}`;
         }
     }
-});
+}
 
 //Course Creation and Form Management
 
@@ -69,7 +71,7 @@ function createCourseRow(courseNumber) {
     return courseRow;
 }
 
-function addCourse() {
+export function addCourse() {
     courseCount++;
     const coursesContainer = document.getElementById('coursesContainer');
     const newCourseRow = createCourseRow(courseCount);
@@ -84,19 +86,9 @@ function removeCourse(courseNumber) {
 }
 
 // Initialize with 3 courses
-document.addEventListener('DOMContentLoaded', function() {
-    addCourse();
-    addCourse();
-    addCourse();
-    
-    document.getElementById('addCourseBtn').addEventListener('click', function(e) {
-        e.preventDefault();
-        addCourse();
-    });
+// Moved to component
 
-});
-
-function clearForm() {
+export function clearForm() {
     // Clear all text inputs and textareas
     document.querySelectorAll('input[type="text"], textarea').forEach((field) => {
         field.value = '';
@@ -152,7 +144,7 @@ function generateFooterLinks() {
 }
 
 // Generate introduction preview and display in preview tab
-function generateIntroductionPreview() {
+export function generateIntroductionPreview() {
     const result = buildIntroductionHTML();
     const previewContainer = document.getElementById('introductionPreviewContainer');
     
@@ -295,47 +287,9 @@ function generateIntroductionPreview() {
 }
 
 // Add event listener to add course, submit & clear buttons and to set default acknowledgment date
-document.addEventListener('DOMContentLoaded', function() {
-    
-    document.getElementById('addCourseBtn').addEventListener('click', function(e) {
-        e.preventDefault();
-        addCourse();
-    });
-    
-    document.getElementById('clearFormBtn').addEventListener('click', function(e) {
-        e.preventDefault();
-        clearForm();
-        window.scrollTo(0, 0);
-    });
+// Moved to component
 
-    document.getElementById('clearFormBtn2').addEventListener('click', function(e) {
-        e.preventDefault();
-        clearForm();
-        window.scrollTo(0, 0);
-    });
-
-    document.getElementById('submitBtn').addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Get the form element
-        const form = document.getElementById('introForm');
-        
-        // Check if form is valid using HTML5 validation
-        if (form.checkValidity() === false) {
-            e.stopPropagation();
-            alert('Please fill in all required fields before submitting.');
-            return;
-        }
-        
-        // All fields are valid, proceed with preview
-        generateIntroductionPreview();
-    });
-
-    document.getElementById('acknowledgmentDate').defaultValue = '2026-01-13';
-
-});
-
-function resetFormWithDefaults() {
+export function resetFormWithDefaults() {
     // Default values for all form fields
     const defaultValues = {
         // Personal Information
@@ -448,23 +402,6 @@ function resetFormWithDefaults() {
 }
 
 // Add event listener to reset button
-document.addEventListener('DOMContentLoaded', function() {
-    const resetFormBtn = document.getElementById('resetFormBtn');
-    if (resetFormBtn) {
-        resetFormBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            resetFormWithDefaults();
-            window.scrollTo(0, 0);
-        });
-    }
-    const resetFormBtn2 = document.getElementById('resetFormBtn2');
-    if (resetFormBtn2) {
-        resetFormBtn2.addEventListener('click', function(e) {
-            e.preventDefault();
-            resetFormWithDefaults();
-        });
-    }
-
-});
+// Moved to component
 
 

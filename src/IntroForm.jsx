@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import Header from './Header.jsx'
 import Footer from './Footer.jsx'
 import styles from './styles/introForm.module.css'
-import ('./scripts/generate_html.js')
-import ('./scripts/generate_json.js')
-import ('./scripts/introduction.js')
+import { displayFormAsJSON } from './scripts/generate_json.js'
+import { generateHTMLPage } from './scripts/generate_html.js'
+import { initializePicture, addCourse, clearForm, generateIntroductionPreview, resetFormWithDefaults } from './scripts/introduction.js'
 
 const TAB_STORAGE_KEY = 'intro_form_active_tab';
 
@@ -38,6 +38,95 @@ export default function IntroForm() {
         }
         sessionStorage.setItem(TAB_STORAGE_KEY, activeTab);
     }, [activeTab]);
+
+    useEffect(() => {
+        // Initialize picture
+        initializePicture();
+
+        // Initialize with 3 courses
+        addCourse();
+        addCourse();
+        addCourse();
+
+        // Attach event listeners
+        const addCourseBtn = document.getElementById('addCourseBtn');
+        if (addCourseBtn) {
+            addCourseBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                addCourse();
+            });
+        }
+
+        const clearFormBtn = document.getElementById('clearFormBtn');
+        if (clearFormBtn) {
+            clearFormBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                clearForm();
+                window.scrollTo(0, 0);
+            });
+        }
+
+        const clearFormBtn2 = document.getElementById('clearFormBtn2');
+        if (clearFormBtn2) {
+            clearFormBtn2.addEventListener('click', (e) => {
+                e.preventDefault();
+                clearForm();
+                window.scrollTo(0, 0);
+            });
+        }
+
+        const submitBtn = document.getElementById('submitBtn');
+        if (submitBtn) {
+            submitBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const form = document.getElementById('introForm');
+                if (form.checkValidity() === false) {
+                    alert('Please fill in all required fields before submitting.');
+                    return;
+                }
+                generateIntroductionPreview();
+            });
+        }
+
+        const resetFormBtn = document.getElementById('resetFormBtn');
+        if (resetFormBtn) {
+            resetFormBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                resetFormWithDefaults();
+                window.scrollTo(0, 0);
+            });
+        }
+
+        const resetFormBtn2 = document.getElementById('resetFormBtn2');
+        if (resetFormBtn2) {
+            resetFormBtn2.addEventListener('click', (e) => {
+                e.preventDefault();
+                resetFormWithDefaults();
+            });
+        }
+
+        const displayJSONBtn = document.getElementById('displayJSONBtn');
+        if (displayJSONBtn) {
+            displayJSONBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                displayFormAsJSON();
+            });
+        }
+
+        const generateHTMLBtn = document.getElementById('generateHTMLBtn');
+        if (generateHTMLBtn) {
+            generateHTMLBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                generateHTMLPage();
+            });
+        }
+
+        // Set default date
+        const acknowledgmentDate = document.getElementById('acknowledgmentDate');
+        if (acknowledgmentDate) {
+            acknowledgmentDate.defaultValue = '2026-01-13';
+        }
+    }, []);
 
     return (
         <>
@@ -273,7 +362,9 @@ export default function IntroForm() {
                     {/* JSON Tab */}
                     <div id="json-tab" className={getTabContentClass('json-tab')}>
                         <h2>Introduction JSON</h2>
-                        <div id="jsonDisplayContainer"></div>
+                        <div id="jsonDisplayContainer">
+                            {/* Raw JSON data will be displayed here */}
+                        </div>
                     </div>
 
                     {/* HTML Tab */}
