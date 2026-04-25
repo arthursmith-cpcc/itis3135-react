@@ -11,6 +11,7 @@ import Inventory from './Inventory.jsx'
 import Instructions from './Instructions.jsx'
 import Highlight from './Highlight.jsx'
 import IntroForm from './IntroForm.jsx'
+import Slideshow from './Slideshow.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -25,6 +26,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/Instructions" element={<Instructions />}></Route>
         <Route path="/Highlight" element={<Highlight />}></Route>
         <Route path="/IntroForm" element={<IntroForm />}></Route>
+        <Route path="/Slideshow" element={<Slideshow />}></Route>
       </Routes>
     </HashRouter>
   </StrictMode>,
